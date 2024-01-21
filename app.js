@@ -13,6 +13,10 @@ const Blog=require('./models/blog');
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
+if (!process.env.MONGO_URL) {
+    console.error('MONGO_URL is not defined in the environment variables.');
+    process.exit(1); // Exit with an error code
+}
 mongoose.connect(process.env.MONGO_URL).then(e=> console.log('MongoDB connected'));
 
 app.set('view engine', 'ejs');
@@ -25,11 +29,20 @@ app.use(express.static(path.resolve('./public')));
 
 
 app.get('/',async (req,res)=>{
-    // res.send('Welcome');
-    // console.log(req.user);
-    const allBlogs=await Blog.find({});
+    try {
+        const allBlogs=await Blog.find({});
      res.render("home",{user:req.user, blogs:allBlogs,});
+    } catch (error) {
+        next(error); 
+    }
+    
 });
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
+
 app.use('/user',userRoute);
 app.use('/blog',blogRoute);
 app.listen(port,()=>{
