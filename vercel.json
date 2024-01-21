@@ -6,10 +6,15 @@
     "routes": [
        { "src": "/(.*)", "dest": "/app.js" }
     ],
-    "functions": {
-        "/blog/add-new": {
-          "maxDuration": 30 
+    
+      "functions": {
+        "blog/add-new.js": {
+          "maxDuration": 30
+        },
+        "blog/*.js": {
+          "maxDuration": 15 
         }
       }
+
 
  }
