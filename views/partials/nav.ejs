@@ -1,0 +1,30 @@
+<nav>
+  <ul class="nav-bar">
+      <li><a class="logo" href="/">ExpressPost</a></li>
+      <input type="checkbox" name="check" id="check">
+      <span class="menu">
+          <li><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <% if (locals.user) {%>
+          <li><a href="/blog/add-new"><i class="fa-solid fa-pen-nib"></i> Add Blog</a></li>
+          <li><a href="/user/contact"><i class="fa-solid fa-address-card"></i> Contact Us</a></li>
+          <li><a href="/user/logout"> Logout</a></li>
+          <% } else {%>
+              <li><a href="/user/signup"><i class="fa-solid fa-arrow-right-to-bracket"></i> Create Account</a></li>
+              <li><a href="/user/signin"><i class="fa-solid fa-user"></i>Signin</a></li>
+              <%} %>
+          <label for="check" class="close"><i class="fas fa-times"></i></label>
+      </span>
+      <label for="check" class="open"><i class="fas fa-bars"></i></label>
+  </ul>
+</nav>
+
+
+
+<% if(locals.error){ %>
+  <div>
+    <div class="alert alert-danger" role="alert">
+      <%= locals.error %>
+    </div>
+  </div>
+<% } %>
+

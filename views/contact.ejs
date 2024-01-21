@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Contact Us</title>
+
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+
+        <div class="container mt-4">
+            <form action="/user/contact" method="post">
+                <div class="mb-3">
+                    <label for="reqName" class="form-label">User Name</label>
+                    <input type="text" class="form-control" id="reqName" name="reqName" aria-describedby="reqName">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" />
+                </div>
+                <div class="form-group">
+                    <label for="query">Enter your query:</label>
+                    <textarea class="form-control" id="query" name="query" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </div>
+
+        <%- include('./partials/scripts') %>
+</body>
+
+</html>

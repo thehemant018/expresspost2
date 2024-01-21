@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Home Page</title>
+
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+        <!-- JSON.stringify(user)
+        JSON.stringify(blogs) -->
+        <div class="card-container">
+            <% blogs.forEach(blog=> { %>
+                <div class="card">
+                    <img src="<%= blog.coverImage %>" alt="">
+                    <div class="card-content">
+                        <h4>
+                            <%= blog.title.substring(0, 25) + "..."  %>
+                        </h4>
+                        <p><%= blog.body.substring(0, 100) + "..." %></p>
+                        <a href="/blog/<%= blog._id %>" class="btn">View</a>
+                    </div>
+                </div>
+                <% })%>
+        </div>
+
+        <%- include('./partials/scripts') %>
+</body>
+
+</html>
