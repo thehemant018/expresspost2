@@ -5,5 +5,11 @@
     ],
     "routes": [
        { "src": "/(.*)", "dest": "/app.js" }
-    ]
+    ],
+    "functions": {
+        "/blog/add-new": {
+          "maxDuration": 30 
+        }
+      }
+
  }
