@@ -9,10 +9,10 @@
     
       "functions": {
         "blog/add-new.js": {
-          "maxDuration": 30
+          "maxDuration": 40
         },
         "blog/*.js": {
-          "maxDuration": 15 
+          "maxDuration": 40
         }
       }
 
