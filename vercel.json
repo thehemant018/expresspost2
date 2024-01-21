@@ -1,15 +1,7 @@
 {
     "version": 2,
     "builds": [
-       { "src": "app.js", "use": "@vercel/node" },
-        { "functions": {
-        "blog/add-new.js": {
-          "maxDuration": 40
-        },
-        "blog/*.js": {
-          "maxDuration": 40
-        }
-      }}
+       { "src": "app.js", "use": "@vercel/node" }
     ],
     "routes": [
        { "src": "/(.*)", "dest": "/app.js" }
