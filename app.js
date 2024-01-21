@@ -30,9 +30,9 @@ app.use(express.static(path.resolve('./public')));
 
 app.get('/',async (req,res)=>{
     try {
-        console.log('Before fetching blogs');
+       
         const allBlogs=await Blog.find({});
-        console.log('after fetching blogs');
+        
      res.render("home",{user:req.user, blogs:allBlogs,});
     } catch (error) {
         next(error); 
