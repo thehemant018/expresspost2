@@ -15,10 +15,14 @@
 
 
     <div class="container mt-4 ">
+       <% try { %>
         <% if (user._id=== blog.createdBy.id) { %>
             <form action="/blog/deletepost/<%= blog._id %>?_method=DELETE" method="post">
                 <button class="btn btn-primary">Delete Post</button>
             </form>
+        <% } %>
+        <% } catch (error) { %>
+            <p></p>
         <% } %>
         
     </div>
